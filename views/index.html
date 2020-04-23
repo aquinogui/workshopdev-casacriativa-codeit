@@ -17,7 +17,9 @@
 
         <section id="intro">
             <header>
-                <img src="images/logo.png" alt="Logo Casa">
+                <a href="/">
+                    <img src="images/logo.png" alt="Logo Casa">
+                </a>
             </header>
 
             <main>
@@ -37,58 +39,34 @@
 
             <section id="buttons">
                 <button onclick="onOff()">+ Adicionar ideas</button>
-                <button class="fat">Ver ideias</button>
+                <button class="fat"><a href="/ideias">Ver ideias</a></button>
             </section>
 
             <footer>
                 Com ♥️ <a href="http://rocketseat.com.br">Rocketseat</a>
             </footer>
 
-            
+
         </section>
 
         <section id="last-ideias">
-            <div class="ideia">
-                <img src="https://image.flaticon.com/icons/svg/2729/2729007.svg" alt="Imagem Dev">
+
+            {% for idea in ideas %}
+
+            <div class="idea">
+                <img src="{{idea.img}}" alt="{{idea.title}}">
                 <div class="content">
-                    <h3>Cursos de programação</h3>
-                    <p>Estudo</p>
+                    <h3>{{idea.title}}</h3>
+                    <p>{{idea.category}}</p>
                     <div class="description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum assumenda enim tempore fugit,
-                        nam doloremque vel amet quisquam perspiciatis natus deleniti ullam! Distinctio nulla eligendi
-                        saepe tempora dolorum blanditiis quae.
+                        {{idea.description}}
                     </div>
-                    <a href="">Ir para ideia</a>
+                    <a href="{{idea.url}}">Ir para ideia</a>
                 </div>
             </div>
 
-            <div class="ideia">
-                <img src="https://image.flaticon.com/icons/svg/2729/2729005.svg" alt="Imagem Exercicio">
-                <div class="content">
-                    <h3>Exercicios em casa</h3>
-                    <p>Estudo</p>
-                    <div class="description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum assumenda enim tempore fugit,
-                        nam doloremque vel amet quisquam perspiciatis natus deleniti ullam! Distinctio nulla eligendi
-                        saepe tempora dolorum blanditiis quae.
-                    </div>
-                    <a href="">Ir para ideia</a>
-                </div>
-            </div>
+            {% endfor %}
 
-            <div class="ideia">
-                <img src="https://image.flaticon.com/icons/svg/2729/2729027.svg" alt="Imagem Meditação">
-                <div class="content">
-                    <h3>Meditação</h3>
-                    <p>Estudo</p>
-                    <div class="description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum assumenda enim tempore fugit,
-                        nam doloremque vel amet quisquam perspiciatis natus deleniti ullam! Distinctio nulla eligendi
-                        saepe tempora dolorum blanditiis quae.
-                    </div>
-                    <a href="">Ir para ideia</a>
-                </div>
-            </div>
         </section>
 
     </div>
@@ -132,7 +110,7 @@
         </div>
     </div>
 
-<script src="scripts.js"></script>
+    <script src="scripts.js"></script>
 
 </body>
 

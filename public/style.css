@@ -85,6 +85,10 @@ button.fat {
     box-shadow: 0px 8px 16px rgba(255, 0, 92, 0.16);
 }
 
+button a {
+    color: white;
+}
+
 button.fat:hover {
     text-decoration: none;
 }
@@ -105,7 +109,7 @@ footer a {
     opacity: 0.7;
 }
 
-.ideia {
+.idea {
     display: flex;
     margin-bottom: 32px;
     background-color: #fff;
@@ -114,23 +118,23 @@ footer a {
     box-shadow: 0px 4px 16px rgba(1, 1, 0, 0.1);
 }
 
-.ideia img {
+.idea img {
     width: 60px;
     height: 60px;
     margin-right: 32px;
     align-self: center;
 }
 
-.ideia p {
+.idea p {
     margin: 8px 0;
     color: #777;
 }
 
-.ideia .description {
+.idea .description {
     margin: 16px 0;
 }
 
-ideia h3 {
+.idea h3 {
     margin: 0;
 }
 
@@ -139,7 +143,7 @@ ideia h3 {
 
 #modal {
     background: #ff5e84;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     left: 0;
@@ -287,6 +291,7 @@ form a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0px 8px 16px rgba(255, 0, 92, 0.16);
 }
 
 #page-ideas nav li:last-child a:hover {
@@ -308,7 +313,7 @@ section#title p {
 }
 
 section#title h1 {
-    margin:0
+    margin:0;
     font-weight: bold;
     font-size:28px;
 
