@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <!--font google-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,700,900&display=swap" rel="stylesheet">
+
+    {% block title %}
+    <title>Casa Criativa - Relembre suas ideias e tarefas</title>  
+    {% endblock title %} 
+
+</head>
+
+<body id="{{ bodyId }}">
+
+    <div id="container">
+
+     {% block content %} 
+     {% endblock %}  
+
+    </div>
+
+    {% include "modal.html" %}
+
+    <script src="scripts.js"></script>
+
+</body>
+
+</html>

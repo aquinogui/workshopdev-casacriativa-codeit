@@ -1,149 +1,39 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends "layout.html" %} 
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ideas - Casa Criativa </title>
-    <link rel="stylesheet" href="style.css">
+{% set bodyId = "page-ideas" %}
 
-    <!--font google-->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,700,900&display=swap" rel="stylesheet">
-</head>
+{% block title %}
+<title>Ideias - Casa Criativa</title>
+{% endblock title %}
 
-<body id="page-ideas">
+{% block content %}
 
-    <div id="container">
+ <header>
+    <a href="/">
+        <img src="images/logo.png" alt="">
+    </a>
+    <nav>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="">ideas</a></li>
+        <li><a href="#" onclick="onOff()" class="fat">Nova idea</a></li>
+    </nav>
+</header>
 
-        <header>
-            <a href="/">
-                <img src="images/logo.png" alt="">
-            </a>
-            <nav>
-                <li><a href="/">Inicio</a></li>
-                <li><a href="">ideas</a></li>
-                <li><a href="#" onclick="onOff()" class="fat">Nova idea</a></li>
-            </nav>
-        </header>
+<section id="title">
+    <p>em exibição</p>
+    <h1>ideias</h1>
+</section>
 
-        <section id="title">
-            <p>em exibição</p>
-            <h1>ideas</h1>
-        </section>
+<main>
+    <section id="ideas">
+        {% include "all_ideas.html" %}
+    </section>
+</main>
 
-        <main>
-            <section id="ideas">
-                <div class="idea">
-                    <img src="https://image.flaticon.com/icons/svg/2729/2729007.svg" alt="Imagem Dev">
-                    <div class="content">
-                        <h3>Cursos de programação</h3>
-                        <p>Estudo</p>
-                        <div class="description">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum assumenda enim tempore
-                            fugit,
-                            nam doloremque vel amet quisquam perspiciatis natus deleniti ullam! Distinctio nulla
-                            eligendi
-                            saepe tempora dolorum blanditiis quae.
-                        </div>
-                        <a href="">Ir para idea</a>
-                    </div>
-                </div>
-                <div class="idea">
-                    <img src="https://image.flaticon.com/icons/svg/2729/2729007.svg" alt="Imagem Dev">
-                    <div class="content">
-                        <h3>Cursos de programação</h3>
-                        <p>Estudo</p>
-                        <div class="description">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum assumenda enim tempore
-                            fugit,
-                            nam doloremque vel amet quisquam perspiciatis natus deleniti ullam! Distinctio nulla
-                            eligendi
-                            saepe tempora dolorum blanditiis quae.
-                        </div>
-                        <a href="">Ir para idea</a>
-                    </div>
-                </div>
-                <div class="idea">
-                    <img src="https://image.flaticon.com/icons/svg/2729/2729007.svg" alt="Imagem Dev">
-                    <div class="content">
-                        <h3>Cursos de programação</h3>
-                        <p>Estudo</p>
-                        <div class="description">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum assumenda enim tempore
-                            fugit,
-                            nam doloremque vel amet quisquam perspiciatis natus deleniti ullam! Distinctio nulla
-                            eligendi
-                            saepe tempora dolorum blanditiis quae.
-                        </div>
-                        <a href="">Ir para idea</a>
-                    </div>
-                </div>
-                <div class="idea">
-                    <img src="https://image.flaticon.com/icons/svg/2729/2729007.svg" alt="Imagem Dev">
-                    <div class="content">
-                        <h3>Cursos de programação</h3>
-                        <p>Estudo</p>
-                        <div class="description">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum assumenda enim tempore
-                            fugit,
-                            nam doloremque vel amet quisquam perspiciatis natus deleniti ullam! Distinctio nulla
-                            eligendi
-                            saepe tempora dolorum blanditiis quae.
-                        </div>
-                        <a href="">Ir para idea</a>
-                    </div>
-                </div>
-            </section>
-        </main>
+<footer>
+    Com ♥️ <a href="http://rocketseat.com.br">Rocketseat</a>
+</footer>
 
-        <footer>
-            Com ♥️ <a href="http://rocketseat.com.br">Rocketseat</a>
-        </footer>
+{% endblock %}
 
-
-
-        <!--MODAL-->
-
-        <div id="modal" class="hide">
-            <div class="content">
-                <h1>Nova Idea</h1>
-
-                <form action="">
-
-                    <div class="input-wrapper">
-                        <label for="title">Titulo da idea</label>
-                        <input type="text" name="title">
-                    </div>
-
-                    <div class="input-wrapper">
-                        <label for="category">Categoria</label>
-                        <input type="text" name="category">
-                    </div>
-
-                    <div class="input-wrapper">
-                        <label for="image">Link da Imagem</label>
-                        <input type="url" name="image">
-                    </div>
-
-                    <div class="input-wrapper">
-                        <label for="descrition">Digite uma descrição para essa idea </label>
-                        <textarea name="description" id="" cols="30" rows="10"></textarea>
-                    </div>
-
-                    <div class="input-wrapper">
-                        <label for="linka">Link da idea</label>
-                        <input type="url" name="link">
-                    </div>
-                    <a href="#" onclick="onOff()">Voltar</a>
-                    <button>Salvar</button>
-
-                </form>
-            </div>
-        </div>
-
-    </div>
-
-    <script src="scripts.js"></script>
-</body>
-
-</html>
+{% include "modal.html" %}
