@@ -1,39 +1,40 @@
-console.log ("iniciando servidor :)")
+console.log("iniciando servidor :)")
 
 //configuracao express
-const express = require ("express")
+const express = require("express")
 const server = express()
 
-const ideas = [
-    {
-        img:"https://image.flaticon.com/icons/svg/2729/2729007.svg",
-        title:"Curso de programacao",
-        category:"Estudo",
-        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum assumenda enim tempore fugit",
-        url:"https://google.com.br"
-    },
-    {
-        img:"https://image.flaticon.com/icons/svg/2729/2729005.svg",
-        title:"Exercicios em casa",
-        category:"Exercicios em casa",
-        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum assumenda enim tempore fugit",
-        url:"https://google.com.br"
-    },
-    {
-        img:"https://image.flaticon.com/icons/svg/2729/2729027.svg",
-        title:"Meditacao",
-        category:"Estudo",
-        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum assumenda enim tempore fugit",
-        url:"https://google.com.br"
-    },
-    {
-        img:"https://image.flaticon.com/icons/svg/2729/2729032.svg",
-        title:"Pintura",
-        category:"Criatividade",
-        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum assumenda enim tempore fugit",
-        url:"https://google.com.br"
-    },
-]
+const db = require("./db")
+
+//const ideas = [
+//{
+// img:"https://image.flaticon.com/icons/svg/2729/2729007.svg",
+//        category:"Estudo",
+// description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum assumenda enim tempore fugit",
+// url:"https://google.com.br"
+// },
+// {
+//   img:"https://image.flaticon.com/icons/svg/2729/2729005.svg",
+// title:"Exercicios em casa",
+//category:"Exercicios em casa",
+//description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum assumenda enim tempore fugit",
+//url:"https://google.com.br"
+//},
+//{
+//   img:"https://image.flaticon.com/icons/svg/2729/2729027.svg",
+//   title:"Meditacao",
+// category:"Estudo",
+//description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum assumenda enim tempore fugit",
+//url:"https://google.com.br"
+//},
+//{
+//  img:"https://image.flaticon.com/icons/svg/2729/2729032.svg",
+//title:"Pintura",
+//category:"Criatividade",
+//description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum assumenda enim tempore fugit",
+//url:"https://google.com.br"
+//},
+//]
 
 //arquivos estaticos//
 server.use(express.static("public"))
@@ -43,29 +44,39 @@ server.use(express.static("public"))
 const nunjucks = require("nunjucks")
 nunjucks.configure("views", {
     express: server,
-    noCache: true, 
+    noCache: true,
 })
 
 server.get("/", function (req, res) {
 
-    const reversedIdeas = [...ideas].reverse()
+    //CONSULTA DE TABELA//
+    db.all('SELECT * FROM ideas', function (err, rows) {
+        if (err) return console.log(err)
 
-    let lastIdeas = []
-    for (let idea of reversedIdeas) {
-        if(lastIdeas.length < 3) {
-            lastIdeas.push(idea)
+        const reversedIdeas = [...rows].reverse()
+
+        let lastIdeas = []
+        for (let idea of reversedIdeas) {
+            if (lastIdeas.length < 3) {
+                lastIdeas.push(idea)
+            }
         }
-    }
-    
-    return res.render("index.html", { ideas: lastIdeas})
+
+        return res.render("index.html", {
+            ideas: lastIdeas
+        })
+    })
 })
+
 
 
 server.get("/ideias", function (req, res) {
 
     const reversedIdeas = [...ideas].reverse()
 
-    return res.render("ideias.html", { ideas: reversedIdeas})
+    return res.render("ideias.html", {
+        ideas: reversedIdeas
+    })
 })
 
 
