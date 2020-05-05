@@ -51,7 +51,10 @@ server.get("/", function (req, res) {
 
     //CONSULTA DE TABELA//
     db.all('SELECT * FROM ideas', function (err, rows) {
-        if (err) return console.log(err)
+        if (err) {
+            console.log(err)
+            return res.send("erro banco de dados ")
+        }
 
         const reversedIdeas = [...rows].reverse()
 
@@ -71,12 +74,15 @@ server.get("/", function (req, res) {
 
 
 server.get("/ideias", function (req, res) {
+    db.all('SELECT * FROM ideas', function (err, rows) {
+        if (err) return console.log(err)
+        const reversedIdeas = [...rows].reverse()
 
-    const reversedIdeas = [...ideas].reverse()
-
-    return res.render("ideias.html", {
-        ideas: reversedIdeas
+        return res.render("ideias.html", {
+            ideas: reversedIdeas
+        })
     })
+
 })
 
 

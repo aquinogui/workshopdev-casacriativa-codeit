@@ -11,7 +11,7 @@ db.serialize(function () {
 
     const values = [
         "https://image.flaticon.com/icons/svg/2729/2729007.svg",
-        "Curso de programacao",
+        "Curso de programacao ",
         "Estudo",
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum assumenda enim tempore fugit",
         "https://google.com.br"
