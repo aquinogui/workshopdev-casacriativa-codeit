@@ -138,6 +138,15 @@ footer a {
     margin: 0;
 }
 
+.separa {
+    display: flex;
+    justify-content: space-between;
+}
+
+.separa :nth-child(2){
+    color:#777;
+}
+
 
 /* MODAL */
 
