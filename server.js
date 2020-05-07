@@ -6,38 +6,13 @@ const server = express()
 
 const db = require("./db")
 
-//const ideas = [
-//{
-// img:"https://image.flaticon.com/icons/svg/2729/2729007.svg",
-//        category:"Estudo",
-// description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum assumenda enim tempore fugit",
-// url:"https://google.com.br"
-// },
-// {
-//   img:"https://image.flaticon.com/icons/svg/2729/2729005.svg",
-// title:"Exercicios em casa",
-//category:"Exercicios em casa",
-//description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum assumenda enim tempore fugit",
-//url:"https://google.com.br"
-//},
-//{
-//   img:"https://image.flaticon.com/icons/svg/2729/2729027.svg",
-//   title:"Meditacao",
-// category:"Estudo",
-//description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum assumenda enim tempore fugit",
-//url:"https://google.com.br"
-//},
-//{
-//  img:"https://image.flaticon.com/icons/svg/2729/2729032.svg",
-//title:"Pintura",
-//category:"Criatividade",
-//description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum assumenda enim tempore fugit",
-//url:"https://google.com.br"
-//},
-//]
-
 //arquivos estaticos//
 server.use(express.static("public"))
+
+//reqbody//
+server.use(express.urlencoded({
+    extended: true
+}))
 
 //template engine/nunjucks
 
@@ -83,6 +58,30 @@ server.get("/ideias", function (req, res) {
         })
     })
 
+})
+
+
+server.post("/", function (req, res) {
+
+    //inserir dado
+    const query = 'INSERT INTO ideas (image,title,category,description,link) VALUES (?,?,?,?,?);'
+
+    const values = [
+       req.body.image,
+       req.body.title,
+       req.body.category,
+       req.body.description,
+       req.body.link,
+    ]
+
+    db.run(query, values, function (err) {
+        if (err) {
+            console.log(err)
+            return res.send("erro banco de dados ")
+        }
+
+        return res.redirect("/ideias")
+    })
 })
 
 

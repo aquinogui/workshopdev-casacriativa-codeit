@@ -18,8 +18,8 @@ db.serialize(function () {
     ]
 
     //db.run(query, values, function (err) {
-    //    if (err) return console.log(err)
-    //   console.log(this)
+    //if (err) return console.log(err)
+    //console.log(this)
     //})
 
     //DELETAR IDEIA//
