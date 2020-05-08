@@ -141,8 +141,13 @@ footer a {
 .separa {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
+.separa img {
+    width: 40px;
+    height: auto;
+}
 .separa :nth-child(2){
     color:#777;
 }

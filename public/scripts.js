@@ -42,10 +42,9 @@ function checkFields(event) {
     }
 }
 
-function deleteIdeia() {
-    //DELETAR IDEIA//
-    db.run('DELETE FROM ideas WHERE id = ?', [1], function (err) {
-        if (err) return console.log(err)
-        console.log("Ideia Deletada", this)
-    })
+function deleteIdea(){
+    let toDelete = confirm("Deseja deletar esta Ideia?")
+    if (!toDelete) {
+        event.preventDefault()
+    }
 }
