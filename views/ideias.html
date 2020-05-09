@@ -1,4 +1,4 @@
-{% extends "layout.html" %} 
+{% extends "layout.html" %}
 
 {% set bodyId = "page-ideas" %}
 
@@ -8,7 +8,7 @@
 
 {% block content %}
 
- <header>
+<header>
     <a href="/">
         <img src="images/logo.png" alt="">
     </a>
@@ -16,6 +16,12 @@
         <li><a href="/">Inicio</a></li>
         <li><a href="">Ideias</a></li>
         <li><a href="#" onclick="onOff()" class="fat">Nova Ideia</a></li>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider round"></div>
+            </label>
+        </div>
     </nav>
 </header>
 
