@@ -5,7 +5,7 @@
 
 Nome da aplicação "Casa Criativa - Ideias para a Crise" o principal objetivo dessa aplicação é cadastrar ideias ou ver o que fazer durante esse periodo de pandemia e de crise em nosso país como: brincadeiras, jogos, filmes, livros, cursos, dicas e etc.
 
-![gif projeto](https://im3.ezgif.com/tmp/ezgif-3-a10787de4765.gif)
+![gif projeto](https://i.imgur.com/nkGc98X.gif)
 
 ## Tecnologias utilizadas: 
 - NodeJs
