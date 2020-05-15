@@ -13,9 +13,9 @@ Nome da aplicação "Casa Criativa - Ideias para a Crise" o principal objetivo d
 - HTML
 - CSS
 - SqLite3
--Nunjucks
--Nodemon
-- express
+- Nunjucks
+- Nodemon
+- Express
 
 
 ## Iniciando
