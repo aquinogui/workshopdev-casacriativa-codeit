@@ -5,23 +5,25 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "build": "vercel build",
+    "deploy": "vercel --prod"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aquinogui/workshopdev-casacriativa-todoit.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/aquinogui/workshopdev-casacriativa-todoit/issues"
-  },
-  "homepage": "https://github.com/aquinogui/workshopdev-casacriativa-todoit#readme",
   "dependencies": {
     "express": "^4.21.1",
     "nodemon": "^3.1.7",
     "nunjucks": "^3.2.4",
     "sqlite3": "^5.1.7"
-  }
+  },
+  "devDependencies": {
+    "vercel": "^30.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/aquinogui/workshopdev-casacriativa-todoit/issues"
+  },
+  "homepage": "https://github.com/aquinogui/workshopdev-casacriativa-todoit#readme"
 }
